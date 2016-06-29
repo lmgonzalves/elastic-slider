@@ -1,0 +1,46 @@
+#carbonads{
+  box-sizing: content-box;
+  position: relative;
+  font-variant: small-caps;
+  font-weight: 700;
+  font-family: Verdana, "Helvetica Neue", Helvetica, sans-serif;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+  margin: 30px auto 0;
+  background-color: rgba(#2980b9, 0.8);
+  border-radius: 2px;
+  overflow: hidden;
+  transition: 0.2s;
+  &:hover{
+    background-color: rgba(#2980b9, 1);
+  }
+  a{
+    color: #fff;
+    font-size: 13px;
+    text-decoration: none;
+  }
+  .carbon-img{
+    display: inline-block;
+    width: 170px;
+    padding: 20px 20px;
+    vertical-align: text-bottom;
+  }
+  .carbon-text{
+    display: inline-block;
+    width: calc(100% - 170px);
+    float: right;
+    padding: 20px 20px 40px 0;
+  }
+  .carbon-poweredby{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    letter-spacing: 1px;
+    font-size: 10px;
+    padding: 7px 10px 6px;
+    color: #999;
+    color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(0, 0, 0, 0.1);
+    border-top-left-radius: 3px;
+  }
+}

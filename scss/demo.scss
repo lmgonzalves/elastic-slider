@@ -1,0 +1,29 @@
+@import "font";
+@import "normalize";
+@import "bootstrap-grid12";
+@import "tomorrow-night";
+@import "layout";
+@import "carbon";
+
+.my-elastic-slider{
+  width: 260px;
+  height: 200px;
+}
+
+#slide1{
+  background-image: url("../images/WINNER-Julian-Rad1.jpg");
+}
+
+#slide2{
+  background-image: url("../images/Highly-Commended-Megan-Lorenz.jpg");
+}
+
+#slide3{
+  background-image: url("../images/Highly-Commended-Alison-Buttigieg.jpg");
+}
+
+#slide4{
+  background-image: url("../images/Highly-Commended-Yuzuru-Masuda.jpg");
+}
+
+@import "media";

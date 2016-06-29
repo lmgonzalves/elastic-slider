@@ -1,0 +1,34 @@
+.elastic-slider{
+  position: relative;
+  background-color: lightgray;
+  width: 600px;
+  height: 400px;
+  cursor: default;
+  overflow: hidden;
+}
+
+.elastic-slider svg{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.elastic-slider svg path{
+  stroke: #5f656f;
+}
+
+.elastic-slider > div{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: 100% 100%;
+  pointer-events: none;
+  user-select: none;
+  cursor: default;
+  &.current{
+    z-index: 1;
+  }
+  &.clipped-left, &.clipped-right{
+    z-index: 2;
+  }
+}

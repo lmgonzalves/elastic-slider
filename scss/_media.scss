@@ -1,0 +1,25 @@
+@media (min-width: 540px) {
+  h1 {
+    font-size: 40px;
+  }
+  .my-elastic-slider{
+    width: 400px;
+    height: 300px;
+  }
+  .slider-help{
+    visibility: visible;
+  }
+  #carbonads{
+    width: 360px;
+  }
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 60px;
+  }
+  .my-elastic-slider{
+    width: 600px;
+    height: 400px;
+  }
+}
