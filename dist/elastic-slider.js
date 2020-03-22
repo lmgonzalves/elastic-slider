@@ -80,12 +80,20 @@ ElasticSlider.prototype = {
 
     initDown: function(){
         var self = this;
+
         self.el.onmousedown = function(e){
             if(!self.animating) {
                 self.mouseDown = true;
                 self.initialX = e.pageX;
             }
         };
+        // added touchstart event
+        self.el.addEventListener('touchstart', function(e){
+            if(!self.animating) {
+                self.mouseDown = true;
+                self.initialX = e.touches[0].clientX;
+            }
+        });
     },
 
     initUp: function(){
@@ -97,6 +105,14 @@ ElasticSlider.prototype = {
                 self.pRight.stop().animate({'path' : self.curveRight}, 200, mina.easeout);
             }
         };
+
+        self.el.addEventListener('touchend', function(){
+            if(self.mouseDown && !self.animating){
+                self.mouseDown = false;
+                self.pLeft.stop().animate({'path' : self.curveLeft}, 200, mina.easeout);
+                self.pRight.stop().animate({'path' : self.curveRight}, 200, mina.easeout);
+            }
+        });
     },
 
     initMove: function(){
@@ -111,6 +127,20 @@ ElasticSlider.prototype = {
                 }
             }
         };
+        
+        // added touchmove events
+        self.el.addEventListener('touchmove', function(e){
+            if(self.mouseDown && !self.animating){
+                self.width = e.touches[0].clientX - self.initialX;        
+                if ( e.touches[0].clientX > self.initialX ) {
+                    self.prevAnimation();
+                }else{
+                    self.nextAnimation();
+                }
+            }
+        });
+
+
     },
 
     prevAnimation: function(){
