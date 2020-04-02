@@ -92,8 +92,8 @@ ElasticSlider.prototype = {
 
     initUp: function(){
         var self = this;
-        document.onmouseup = animStop();
-        document.ontouchend = animStop(); // touchend event
+        document.onmouseup = animStop;
+        document.ontouchend = animStop; // touchend event
         function animStop(){
             if(self.mouseDown && !self.animating){
                 self.mouseDown = false;
