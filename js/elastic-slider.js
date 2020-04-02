@@ -80,37 +80,43 @@ ElasticSlider.prototype = {
 
     initDown: function(){
         var self = this;
-        self.el.onmousedown = function(e){
-            if(!self.animating) {
+        self.el.onmousedown = function(e){animStart(e.pageX);}
+        self.el.ontouchstart = function(e){animStart(e.touches[0].clientX);} // touchstart event
+        function animStart(b){
+            if(!self.animating){
                 self.mouseDown = true;
-                self.initialX = e.pageX;
+                self.initialX = b;
             }
-        };
+        }
     },
 
     initUp: function(){
         var self = this;
-        document.onmouseup = function(){
+        document.onmouseup = animStop();
+        document.ontouchend = animStop(); // touchend event
+        function animStop(){
             if(self.mouseDown && !self.animating){
                 self.mouseDown = false;
                 self.pLeft.stop().animate({'path' : self.curveLeft}, 200, mina.easeout);
                 self.pRight.stop().animate({'path' : self.curveRight}, 200, mina.easeout);
             }
-        };
+        }
     },
 
     initMove: function(){
         var self = this;
-        self.el.onmousemove = function(e){
+        self.el.onmousemove = function(e){animMove(e.pageX);};
+        self.el.ontouchmove = function(e){animMove(e.touches[0].clientX);}; // touchmove event
+        function animMove(z){
             if(self.mouseDown && !self.animating){
-                self.width = e.pageX - self.initialX;
-                if(e.pageX > self.initialX){
+                self.width = z- self.initialX;
+                if(z > self.initialX){
                     self.prevAnimation();
                 }else{
                     self.nextAnimation();
                 }
             }
-        };
+        }
     },
 
     prevAnimation: function(){
